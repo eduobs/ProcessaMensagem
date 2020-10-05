@@ -1,18 +1,23 @@
-using NUnit.Framework;
+using Services;
+using Services.Interface;
+using System;
+using Xunit;
 
 namespace Tests
 {
-    public class Tests
+    public class TesteMensagem
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
+        private readonly IMensagemService _mensagemService = new MensagemService();
 
-        [Test]
-        public void Test1()
+        [Fact]
+        public void Testa_Mensagem_Valida()
         {
-            Assert.Pass();
+            var textoMensagem = "Teste1";
+
+            var mensagem = _mensagemService.MontaMensagem(textoMensagem);
+            
+            Assert.NotNull(mensagem);
+            Assert.Equal(mensagem.Texto, textoMensagem);
         }
     }
 }

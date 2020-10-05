@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FunctionMenssage
+namespace Services.Model
 {
     public class Mensagem
     {
